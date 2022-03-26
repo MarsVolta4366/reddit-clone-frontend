@@ -1,25 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react'
+import './App.css'
+import SignUpFormDialog from './components/TopNavigation/SignUpFormDialogue'
+import TopNavigation from './components/TopNavigation/TopNavigation'
+import { SignUpContext } from './context/SignUpContext'
 
 function App() {
+
+  let [toggleSignUp, setToggleSignUp] = useState(false)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div id="app">
+      <SignUpContext.Provider value={{ toggleSignUp, setToggleSignUp }}>
+        <TopNavigation />
+        {toggleSignUp ? <SignUpFormDialog /> : null}
+      </SignUpContext.Provider>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
