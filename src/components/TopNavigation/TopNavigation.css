@@ -1,4 +1,4 @@
-#topNavigation {
+/* #topNavigation {
     background-color: var(--darkBox);
     height: 50px;
     border-bottom: 1px solid var(--darkBorder);
@@ -6,8 +6,8 @@
     align-items: center;
 }
 
-#redditLogoContainer {
-    margin: 5px 0 0 15px;
+.redditLogoContainer {
+    margin: 10px;
 }
 
 #redditLogo {
@@ -21,8 +21,8 @@
     padding: 5px 35px 5px 35px;
     font-size: 14px;
     text-transform: unset !important;
-    margin-left: auto;
-    margin-right: 10px;
+    margin: 10px;
+    white-space: nowrap;
 }
 
 #logInButton:hover {
@@ -36,9 +36,22 @@
     font-size: 14px;
     color: var(--darkBox);
     text-transform: unset !important;
+    white-space: nowrap;
+    margin: 10px;
 }
 
 #signUpButton:hover {
     background-color: #b1b5b8;
 }
 
+@media only screen and (max-width: 700px) {
+    #signUpButton {
+        display: none;
+    }
+    #logInButton {
+        display: none;
+    }
+    .usernameDisplay {
+        display: none;
+    }
+  } */

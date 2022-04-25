@@ -1,0 +1,299 @@
+// COMPILE COMMAND: sass src/scss/style.scss src/css/style.css
+$darkBox: #212222;
+$darkBackground: #030303;
+$darkBorder: #515151;
+$lightText: #d6cfcf;
+$darkInputBackground: #272729;
+$grayText: #6e6e76;
+
+@mixin grayBorderVerticalBox {
+    background-color: $darkBox;
+    border-radius: 5px;
+    border: 1px solid $darkBorder;
+    padding: 10px;
+    margin: 10px 0px 10px 0px;
+}
+
+* {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+}
+
+pre {
+    white-space: pre-wrap;
+}
+
+.myDivider {
+    background-color: $darkBorder;
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+}
+
+.myListDivider {
+    background-color: $darkBorder;
+    margin: 10px 0px 10px 0px !important;
+}
+
+body {
+    background-color: $darkBackground;
+}
+
+.whiteText {
+    color: $lightText !important;
+}
+
+// This is styling Mui MenuItem, for styling other ul's use classes or id's
+ul {
+    background-color: $darkBox;
+    border: 1px solid $darkBorder;
+}
+
+.darkHeader {
+    // margin-bottom: 20px;
+    font-size: 18px;
+}
+
+.verticalFlexRight {
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    width: 300px;
+}
+
+.verticalFlexLeft {
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    width: 600px;
+}
+
+.myContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.verticalBox {
+    @include grayBorderVerticalBox;
+
+    &:hover {
+        border: 1px solid $lightText;
+        cursor: pointer;
+    }
+}
+
+.verticalBoxCenteredNoHover {
+    @include grayBorderVerticalBox;
+    text-align: center;
+
+    h2 {
+        font-size: 20px;
+    }
+}
+
+.verticalBoxNoHover {
+    @include grayBorderVerticalBox;
+}
+
+.verticalShowPageBox {
+    background-color: $darkBox;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.smLightText {
+    color: $lightText;
+    font-size: 12px;
+}
+
+.iconAndTextBox {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+.smGrayText {
+    color: $grayText;
+    font-size: 12px;
+}
+
+.postTitle {
+    font-size: 18px;
+    overflow-wrap: break-word !important;
+    margin: 10px 0px 10px 0px;
+    color: $lightText;
+}
+
+.postText {
+    overflow-wrap: break-word;
+    font-size: 14px;
+    color: $lightText;
+}
+
+.darkIcon {
+    color: $lightText;
+    font-size: 25px !important;
+    margin-right: 10px;
+}
+
+.darkIconLarge {
+    color: $lightText;
+    font-size: 30px !important;
+}
+
+.myLink {
+    text-decoration: none !important;
+    color: $lightText !important;
+}
+
+.createPostContentBox {
+    background-color: $darkBox;
+    margin: 0 auto;
+    border-radius: 5px;
+    border: 1px solid $darkBorder;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.contentIcon {
+    color: $darkBorder;
+    font-size: 24px !important;
+    margin: 0px 10px 0px 10px;
+}
+
+// TopNavigation
+#topNavigation {
+    background-color: $darkBox;
+    height: 50px;
+    border-bottom: 1px solid $darkBorder;
+    display: flex;
+    align-items: center;
+}
+
+.redditLogoContainer {
+    margin: 10px;
+}
+
+#redditLogo {
+    height: 35px;
+}
+
+#logInButton {
+    color: $lightText;
+    border: 1px solid $lightText;
+    border-radius: 20px;
+    padding: 5px 35px 5px 35px;
+    font-size: 14px;
+    text-transform: unset !important;
+    margin: 10px;
+    white-space: nowrap;
+}
+
+#logInButton:hover {
+    background-color: #2f3131;
+}
+
+#signUpButton {
+    background-color: #D7DADC;
+    border-radius: 20px;
+    padding: 5px 35px 5px 35px;
+    font-size: 14px;
+    color: $darkBox;
+    text-transform: unset !important;
+    white-space: nowrap;
+    margin: 10px;
+}
+
+#signUpButton:hover {
+    background-color: #b1b5b8;
+}
+
+@media only screen and (max-width: 700px) {
+    #signUpButton {
+        display: none;
+    }
+
+    #logInButton {
+        display: none;
+    }
+
+    .usernameDisplay {
+        display: none;
+    }
+}
+
+// CreatePostForm
+.createPostFormBox {
+    background-color: $darkBox;
+    padding: 20px;
+}
+
+.darkBackground {
+    background-color: $darkBox;
+}
+
+#topCommunities {
+    border: none;
+    text-align: start;
+    padding: 20px;
+    margin-top: 0px !important;
+}
+
+#postButton {
+    background-color: #D7DADC;
+    border-radius: 20px;
+    padding: 5px 35px 5px 35px;
+    font-size: 14px;
+    color: $darkBox;
+    text-transform: unset !important;
+    white-space: nowrap;
+}
+
+.grayButton {
+    background-color: #D7DADC !important;
+    border-radius: 20px !important;
+    padding: 2px 20px 2px 20px !important;
+    font-size: 14px !important;
+    color: $darkBox !important;
+    text-transform: unset !important;
+    white-space: nowrap !important;
+}
+
+.lightTextButton {
+    padding: 2px 20px 2px 20px !important;
+    border-radius: 20px !important;
+    font-size: 14px !important;
+    color: $lightText !important;
+    text-transform: unset !important;
+    white-space: nowrap !important;
+}
+
+.iconButton {
+    color: $lightText;
+    font-size: 25px;
+}
+
+.commentUsername {
+    font-size: 12px;
+    overflow-wrap: break-word !important;
+}
+
+.commentText {
+    font-size: 14px;
+    margin: 10px 0px 10px 25px;
+    overflow-wrap: break-word !important;
+}
+
+.deleteButton {
+    text-transform: unset !important;
+    font-size: 14px !important;
+    color: $lightText !important;
+    padding: 0 !important;
+    margin: 10px 0px 10px 0px !important;
+}
+
+.underlineHover:hover {
+    text-decoration: underline !important;
+}

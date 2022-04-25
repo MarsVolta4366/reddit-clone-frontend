@@ -1,0 +1,290 @@
+* {
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+}
+
+pre {
+  white-space: pre-wrap;
+}
+
+.myDivider {
+  background-color: #515151;
+  margin-top: 10px !important;
+  margin-bottom: 10px !important;
+}
+
+.myListDivider {
+  background-color: #515151;
+  margin: 10px 0px 10px 0px !important;
+}
+
+body {
+  background-color: #030303;
+}
+
+.whiteText {
+  color: #d6cfcf !important;
+}
+
+ul {
+  background-color: #212222;
+  border: 1px solid #515151;
+}
+
+.darkHeader {
+  font-size: 18px;
+}
+
+.verticalFlexRight {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  width: 300px;
+}
+
+.verticalFlexLeft {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  width: 600px;
+}
+
+.myContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.verticalBox {
+  background-color: #212222;
+  border-radius: 5px;
+  border: 1px solid #515151;
+  padding: 10px;
+  margin: 10px 0px 10px 0px;
+}
+.verticalBox:hover {
+  border: 1px solid #d6cfcf;
+  cursor: pointer;
+}
+
+.verticalBoxCenteredNoHover {
+  background-color: #212222;
+  border-radius: 5px;
+  border: 1px solid #515151;
+  padding: 10px;
+  margin: 10px 0px 10px 0px;
+  text-align: center;
+}
+.verticalBoxCenteredNoHover h2 {
+  font-size: 20px;
+}
+
+.verticalBoxNoHover {
+  background-color: #212222;
+  border-radius: 5px;
+  border: 1px solid #515151;
+  padding: 10px;
+  margin: 10px 0px 10px 0px;
+}
+
+.verticalShowPageBox {
+  background-color: #212222;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.smLightText {
+  color: #d6cfcf;
+  font-size: 12px;
+}
+
+.iconAndTextBox {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+.smGrayText {
+  color: #6e6e76;
+  font-size: 12px;
+}
+
+.postTitle {
+  font-size: 18px;
+  overflow-wrap: break-word !important;
+  margin: 10px 0px 10px 0px;
+  color: #d6cfcf;
+}
+
+.postText {
+  overflow-wrap: break-word;
+  font-size: 14px;
+  color: #d6cfcf;
+}
+
+.darkIcon {
+  color: #d6cfcf;
+  font-size: 25px !important;
+  margin-right: 10px;
+}
+
+.darkIconLarge {
+  color: #d6cfcf;
+  font-size: 30px !important;
+}
+
+.myLink {
+  text-decoration: none !important;
+  color: #d6cfcf !important;
+}
+
+.createPostContentBox {
+  background-color: #212222;
+  margin: 0 auto;
+  border-radius: 5px;
+  border: 1px solid #515151;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.contentIcon {
+  color: #515151;
+  font-size: 24px !important;
+  margin: 0px 10px 0px 10px;
+}
+
+#topNavigation {
+  background-color: #212222;
+  height: 50px;
+  border-bottom: 1px solid #515151;
+  display: flex;
+  align-items: center;
+}
+
+.redditLogoContainer {
+  margin: 10px;
+}
+
+#redditLogo {
+  height: 35px;
+}
+
+#logInButton {
+  color: #d6cfcf;
+  border: 1px solid #d6cfcf;
+  border-radius: 20px;
+  padding: 5px 35px 5px 35px;
+  font-size: 14px;
+  text-transform: unset !important;
+  margin: 10px;
+  white-space: nowrap;
+}
+
+#logInButton:hover {
+  background-color: #2f3131;
+}
+
+#signUpButton {
+  background-color: #D7DADC;
+  border-radius: 20px;
+  padding: 5px 35px 5px 35px;
+  font-size: 14px;
+  color: #212222;
+  text-transform: unset !important;
+  white-space: nowrap;
+  margin: 10px;
+}
+
+#signUpButton:hover {
+  background-color: #b1b5b8;
+}
+
+@media only screen and (max-width: 700px) {
+  #signUpButton {
+    display: none;
+  }
+
+  #logInButton {
+    display: none;
+  }
+
+  .usernameDisplay {
+    display: none;
+  }
+}
+.createPostFormBox {
+  background-color: #212222;
+  padding: 20px;
+}
+
+.darkBackground {
+  background-color: #212222;
+}
+
+#topCommunities {
+  border: none;
+  text-align: start;
+  padding: 20px;
+  margin-top: 0px !important;
+}
+
+#postButton {
+  background-color: #D7DADC;
+  border-radius: 20px;
+  padding: 5px 35px 5px 35px;
+  font-size: 14px;
+  color: #212222;
+  text-transform: unset !important;
+  white-space: nowrap;
+}
+
+.grayButton {
+  background-color: #D7DADC !important;
+  border-radius: 20px !important;
+  padding: 2px 20px 2px 20px !important;
+  font-size: 14px !important;
+  color: #212222 !important;
+  text-transform: unset !important;
+  white-space: nowrap !important;
+}
+
+.lightTextButton {
+  padding: 2px 20px 2px 20px !important;
+  border-radius: 20px !important;
+  font-size: 14px !important;
+  color: #d6cfcf !important;
+  text-transform: unset !important;
+  white-space: nowrap !important;
+}
+
+.iconButton {
+  color: #d6cfcf;
+  font-size: 25px;
+}
+
+.commentUsername {
+  font-size: 12px;
+  overflow-wrap: break-word !important;
+}
+
+.commentText {
+  font-size: 14px;
+  margin: 10px 0px 10px 25px;
+  overflow-wrap: break-word !important;
+}
+
+.deleteButton {
+  text-transform: unset !important;
+  font-size: 14px !important;
+  color: #d6cfcf !important;
+  padding: 0 !important;
+  margin: 10px 0px 10px 0px !important;
+}
+
+.underlineHover:hover {
+  text-decoration: underline !important;
+}
+
+/*# sourceMappingURL=style.css.map */
