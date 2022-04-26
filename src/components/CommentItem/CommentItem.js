@@ -1,6 +1,7 @@
 import { Delete, Edit, MoreHoriz, PersonOutline } from "@mui/icons-material"
 import { Button, Menu, MenuItem, TextareaAutosize } from "@mui/material"
 import { useContext, useState } from "react"
+import { Link } from "react-router-dom"
 import { CurrentUserContext } from "../../context/CurrentUserContext"
 
 const CommentItem = ({ comment, post_id }) => {
@@ -85,8 +86,12 @@ const CommentItem = ({ comment, post_id }) => {
     return (
         <div className="whiteText commentBox">
             <div className="iconAndTextBox">
-                <PersonOutline className="darkIcon" style={{ margin: "0" }} />
-                <h2 className="commentUsername">{comment.User.username}</h2>
+                <Link to={`/profile/${comment.User.username}`} className="myLink">
+                    <PersonOutline className="darkIcon" style={{ margin: "0" }} />
+                </Link>
+                <Link to={`/profile/${comment.User.username}`} className="myLink">
+                    <h2 className="commentUsername underlineHover">{comment.User.username}</h2>
+                </Link>
             </div>
             {toggleCommentEdit ? commentEditForm : <pre className="commentText">{comment.text}</pre>}
             {renderCommentActions(comment)}
