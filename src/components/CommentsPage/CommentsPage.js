@@ -13,6 +13,7 @@ const CommentsPage = () => {
     const { post_id } = useParams()
     const [postData, setPostData] = useState({ User: { username: null }, Comments: [] })
     const [comment, setComment] = useState({ post_id: post_id, text: "" })
+    const [commentButtonDisabled, setCommentButtonDisabled] = useState(true)
 
     useEffect(() => {
         const fetchPost = async () => {
@@ -85,7 +86,10 @@ const CommentsPage = () => {
                             id="text"
                             className="darkBackground whiteText"
                             value={comment.text}
-                            onChange={(e) => setComment({ ...comment, text: e.target.value })}
+                            onChange={(e) => {
+                                setComment({ ...comment, text: e.target.value })
+                                e.target.value ? setCommentButtonDisabled(false) : setCommentButtonDisabled(true)
+                            }}
                             style={{
                                 padding: "10px",
                                 width: "96%",
@@ -93,7 +97,7 @@ const CommentsPage = () => {
                                 height: "200px",
                                 marginBottom: "10px"
                             }} />
-                        <Button type="submit" className="grayButton">Comment</Button>
+                        <Button type="submit" className={`grayButton ${commentButtonDisabled ? "no-drop" : ""}`}>Comment</Button>
                     </form>
                 </div>
             )
