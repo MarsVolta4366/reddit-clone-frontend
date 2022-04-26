@@ -49,14 +49,17 @@ const CommentsPage = () => {
                 className="darkBackground whiteText"
                 value={postData.text}
                 onChange={(e) => setPostData({ ...postData, text: e.target.value })}
+
                 style={{
                     padding: "10px",
                     width: "96%",
                     resize: "vertical",
                     height: "200px"
                 }} />
-            <Button className="lightTextButton" onClick={() => setToggleEdit(false)}>Cancel</Button>
-            <Button type="submit" className="grayButton">Save</Button>
+            <div style={{ float: "right", marginTop: "5px" }}>
+                <Button className="lightTextButton" onClick={() => setToggleEdit(false)}>Cancel</Button>
+                <Button type="submit" className="grayButton">Save</Button>
+            </div>
         </form>
     )
 

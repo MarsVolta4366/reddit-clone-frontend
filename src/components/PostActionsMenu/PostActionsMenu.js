@@ -15,7 +15,7 @@ const PostActionsMenu = ({ postData, setToggleEdit, toggleEdit }) => {
 
     return (
         <div>
-            <Button onClick={handleActionMenuClick}><MoreHoriz className="iconButton" /></Button>
+            <Button onClick={handleActionMenuClick} className="actionsButton"><MoreHoriz className="iconButton" /></Button>
             <Menu
                 anchorEl={anchorHome}
                 open={homeOpen}

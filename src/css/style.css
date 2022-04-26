@@ -121,6 +121,7 @@ ul {
   overflow-wrap: break-word;
   font-size: 14px;
   color: #d6cfcf;
+  margin-bottom: 10px;
 }
 
 .darkIcon {
@@ -267,6 +268,14 @@ ul {
 .iconButton {
   color: #d6cfcf;
   font-size: 25px;
+}
+
+.actionsButton {
+  padding: 0px !important;
+  margin-top: 5px !important;
+}
+.actionsButton:hover {
+  background-color: #272729 !important;
 }
 
 .commentUsername {

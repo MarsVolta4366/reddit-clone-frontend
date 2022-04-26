@@ -33,7 +33,7 @@ const CommentItem = ({ comment, post_id }) => {
             if (currentUser.username === comment.User.username) {
                 return (
                     <form>
-                        <Button onClick={handleCommentActionsClicked}><MoreHoriz className="iconButton" /></Button>
+                        <Button onClick={handleCommentActionsClicked} className="actionsButton"><MoreHoriz className="iconButton" /></Button>
                         <Menu
                             anchorEl={anchorCommentActions}
                             open={commentActionsOpen}
@@ -78,8 +78,10 @@ const CommentItem = ({ comment, post_id }) => {
                     resize: "vertical",
                     height: "200px"
                 }} />
-            <Button className="lightTextButton" onClick={() => setToggleCommentEdit(false)}>Cancel</Button>
-            <Button type="submit" className="grayButton">Save</Button>
+            <div style={{ float: "right", marginTop: "5px" }}>
+                <Button className="lightTextButton" onClick={() => setToggleCommentEdit(false)}>Cancel</Button>
+                <Button type="submit" className="grayButton">Save</Button>
+            </div>
         </form>
     )
 
