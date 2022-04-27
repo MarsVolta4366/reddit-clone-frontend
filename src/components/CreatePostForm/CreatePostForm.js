@@ -8,6 +8,7 @@ const CreatePostForm = () => {
         text: ""
     })
     let newPostForm = null
+    const [postButtonDisabled, setPostButtonDisabled] = useState(true)
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -41,7 +42,10 @@ const CreatePostForm = () => {
                             disableUnderline={true}
                             placeholder="Title"
                             value={post.title}
-                            onChange={(e) => setPost({ ...post, title: e.target.value })}
+                            onChange={(e) => {
+                                setPost({ ...post, title: e.target.value })
+                                e.target.value ? setPostButtonDisabled(false) : setPostButtonDisabled(true)
+                            }}
                             style={{ marginBottom: "10px", background: "none" }}
                         />
                         <TextareaAutosize
@@ -59,7 +63,7 @@ const CreatePostForm = () => {
                                 height: "200px"
                             }} />
                         <Divider className="myDivider" />
-                        <Button type="submit" id="postButton">Post</Button>
+                        <Button type="submit" className={`grayButton ${postButtonDisabled ? "no-drop" : ""}`}>Post</Button>
                     </form>
                 </div>
             </div>

@@ -231,16 +231,6 @@ ul {
   margin-top: 0px !important;
 }
 
-#postButton {
-  background-color: #D7DADC;
-  border-radius: 20px;
-  padding: 5px 35px 5px 35px;
-  font-size: 14px;
-  color: #212222;
-  text-transform: unset !important;
-  white-space: nowrap;
-}
-
 .grayButton {
   background-color: #D7DADC !important;
   border-radius: 20px !important;
