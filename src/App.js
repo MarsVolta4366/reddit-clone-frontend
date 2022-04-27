@@ -68,22 +68,22 @@ const theme = createTheme({
             }
           }
         },
-        {
-          props: {
-            variant: "homeButton"
-          },
-          style: {
-            height: "35px",
-            width: "300px",
-            padding: "10px",
-            margin: "0 10px 0 10px",
-            border: "1px solid #212222",
-            textTransform: "unset",
-            "&:hover": {
-              border: "1px solid #424242"
-            }
-          }
-        }
+        // {
+        //   props: {
+        //     variant: "homeButton"
+        //   },
+        //   style: {
+        //     height: "35px",
+        //     width: "300px",
+        //     padding: "10px",
+        //     margin: "0 10px 0 10px",
+        //     border: "1px solid #212222",
+        //     textTransform: "unset",
+        //     "&:hover": {
+        //       border: "1px solid #424242"
+        //     }
+        //   }
+        // }
       ]
     },
     MuiInput: {
@@ -189,7 +189,7 @@ function App() {
                       <PostsGallery data={data} />
                     </div>
 
-                    <div className="verticalFlexRight">
+                    <div className="verticalFlexRight hideOnMediaQuery">
                       <TopGrowingCommunities />
                     </div>
                   </div>

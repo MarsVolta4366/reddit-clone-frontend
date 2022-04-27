@@ -34,7 +34,7 @@ const Profile = () => {
             <div className="verticalFlexLeft">
                 <div className="whiteText">{usersPostsDisplay}</div>
             </div>
-            <div className="verticalFlexRight whiteText">
+            <div className="verticalFlexRight whiteText hideOnMediaQuery">
                 <div className="verticalBoxCenteredNoHover">
                     <PersonOutline className="darkIconLarge" />
                     <h2>{username}</h2>

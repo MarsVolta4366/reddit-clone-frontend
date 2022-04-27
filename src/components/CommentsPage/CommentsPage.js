@@ -134,7 +134,9 @@ const CommentsPage = () => {
                         <Link to={`/profile/${postData.User.username}`} className="myLink">
                             <span className="smLightText underlineHover">u/{postData.User.username}</span>
                         </Link>
-                        <span className="smGrayText">&nbsp;&#183; Posted by&nbsp;</span>
+                        <Link to="#" className="myLink" style={{ cursor: "context-menu" }}>
+                            <span className="smGrayText">&nbsp;&#183; Posted by&nbsp;</span>
+                        </Link>
                         <Link to={`/profile/${postData.User.username}`} className="myLink">
                             <span className="smGrayText underlineHover">u/{postData.User.username}</span>
                         </Link>
@@ -147,7 +149,7 @@ const CommentsPage = () => {
                     {commentsDisplay}
                 </div>
             </div>
-            <div className="verticalFlexRight whiteText">
+            <div className="verticalFlexRight whiteText hideOnMediaQuery">
                 <div className="verticalBoxNoHover" style={{ marginTop: "0px" }}>
                     Community
                 </div>

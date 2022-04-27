@@ -42,6 +42,7 @@ ul {
   flex-direction: column;
   margin: 20px;
   width: 300px;
+  margin-top: 60px;
 }
 
 .verticalFlexLeft {
@@ -49,6 +50,7 @@ ul {
   flex-direction: column;
   margin: 20px;
   width: 600px;
+  margin-top: 60px;
 }
 
 .myContainer {
@@ -162,6 +164,9 @@ ul {
   border-bottom: 1px solid #515151;
   display: flex;
   align-items: center;
+  position: fixed;
+  z-index: 100;
+  width: 100%;
 }
 
 .redditLogoContainer {
@@ -240,6 +245,20 @@ ul {
 
   .hideOnMediaQuery {
     display: none !important;
+  }
+
+  .verticalFlexLeft {
+    width: 100%;
+    margin: 10px;
+    margin-top: 60px;
+  }
+
+  .verticalBox {
+    border-radius: 0;
+  }
+
+  .createPostContentBox {
+    border-radius: 0;
   }
 }
 .createPostFormBox {

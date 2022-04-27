@@ -67,7 +67,7 @@ const CreatePostForm = () => {
                     </form>
                 </div>
             </div>
-            <div className="verticalFlexRight">
+            <div className="verticalFlexRight hideOnMediaQuery">
                 <div className="verticalBox" id="topCommunities">
                     <h2 className="whiteText darkHeader">Posting to Reddit</h2>
                     <Divider className="myListDivider" />
