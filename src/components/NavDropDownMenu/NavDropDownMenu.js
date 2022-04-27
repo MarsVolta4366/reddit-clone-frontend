@@ -15,7 +15,7 @@ const NavDropDownMenu = () => {
             setButtonDisplay(
                 <>
                     <Home className="darkIcon" />
-                    <span className="whiteText">
+                    <span className="whiteText hideOnMediaQuery">
                         Home
                     </span>
                 </>
@@ -24,7 +24,7 @@ const NavDropDownMenu = () => {
             setButtonDisplay(
                 <>
                     <Add className="darkIcon" />
-                    <span className="whiteText" style={{ whiteSpace: "nowrap" }}>
+                    <span className="whiteText hideOnMediaQuery" style={{ whiteSpace: "nowrap" }}>
                         Create Post
                     </span>
                 </>
@@ -34,7 +34,7 @@ const NavDropDownMenu = () => {
             setButtonDisplay(
                 <>
                     <PersonOutline className="darkIcon" />
-                    <span className="whiteText">
+                    <span className="whiteText hideOnMediaQuery">
                         u/{username}
                     </span>
                 </>
@@ -48,9 +48,9 @@ const NavDropDownMenu = () => {
 
     return (
         <div style={{ marginLeft: "auto", display: "flex", alignItems: "center" }}>
-            <Button onClick={handleHomeClick} variant="homeButton">
+            <Button onClick={handleHomeClick} id="homeButton">
                 {buttonDisplay}
-                <KeyboardArrowDownOutlined className="darkIcon" style={{ marginLeft: "auto", marginRight: "0" }} />
+                <KeyboardArrowDownOutlined className="darkIcon hideOnMediaQuery" style={{ marginLeft: "auto", marginRight: "0" }} />
             </Button>
             <Menu
                 id="basic-menu"
