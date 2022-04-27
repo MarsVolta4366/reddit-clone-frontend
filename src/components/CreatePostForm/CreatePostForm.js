@@ -60,7 +60,7 @@ const CreatePostForm = () => {
                                 padding: "10px",
                                 width: "96%",
                                 resize: "vertical",
-                                height: "200px"
+                                height: "200px",
                             }} />
                         <Divider className="myDivider" />
                         <Button type="submit" className={`grayButton ${postButtonDisabled ? "no-drop" : ""}`}>Post</Button>

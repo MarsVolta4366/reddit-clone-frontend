@@ -60,7 +60,6 @@ ul {
     flex-direction: column;
     margin: 20px;
     width: 300px;
-    margin-top: 60px;
 }
 
 .verticalFlexLeft {
@@ -68,10 +67,15 @@ ul {
     flex-direction: column;
     margin: 20px;
     width: 600px;
-    margin-top: 60px;
 }
 
 .myContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 60px !important;
+}
+
+.myContainerSmMarginTop {
     display: flex;
     justify-content: center;
 }
@@ -176,6 +180,7 @@ ul {
     position: fixed;
     z-index: 100;
     width: 100%;
+    top: 0;
 }
 
 .redditLogoContainer {
@@ -344,6 +349,14 @@ ul {
     color: $lightText !important;
     padding: 0 !important;
     margin: 10px 0px 10px 0px !important;
+}
+
+.closePostButton {
+    color: $lightText !important;
+    text-transform: unset !important;
+    margin-left: auto !important;
+    padding: 0px !important;
+    font-size: 14px !important;
 }
 
 .underlineHover:hover {
