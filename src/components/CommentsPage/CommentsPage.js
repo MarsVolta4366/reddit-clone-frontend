@@ -131,8 +131,8 @@ const CommentsPage = () => {
     return (
         <div>
             <div className="myContainer">
-                <div className="verticalFlexLeft hideOnMediaQuery">
-                    <p className="postText iconAndTextBox"><Article className="darkIcon" />{postData.title}</p>
+                <div className="verticalFlexLeft">
+                    <p className="postText iconAndTextBox"><Article className="darkIcon" /><span className="hideOnMediaQuery">{postData.title}</span></p>
                 </div>
                 <div className="verticalFlexRight">
                     <Button onClick={exitShowPage} className="closePostButton"><Close className="darkIcon" />Close</Button>

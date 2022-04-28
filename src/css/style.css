@@ -54,7 +54,7 @@ ul {
 .myContainer {
   display: flex;
   justify-content: center;
-  margin-top: 60px !important;
+  margin-top: 50px !important;
 }
 
 .myContainerSmMarginTop {
@@ -67,7 +67,7 @@ ul {
   border-radius: 5px;
   border: 1px solid #515151;
   padding: 10px;
-  margin: 10px 0px 10px 0px;
+  margin: 20px 0px 20px 0px;
 }
 .verticalBox:hover {
   border: 1px solid #d6cfcf;
@@ -79,8 +79,8 @@ ul {
   border-radius: 5px;
   border: 1px solid #515151;
   padding: 10px;
-  margin: 10px 0px 10px 0px;
   text-align: center;
+  margin: 0 !important;
 }
 .verticalBoxCenteredNoHover h2 {
   font-size: 20px;
@@ -91,7 +91,6 @@ ul {
   border-radius: 5px;
   border: 1px solid #515151;
   padding: 10px;
-  margin: 10px 0px 10px 0px;
 }
 
 .verticalShowPageBox {
@@ -255,11 +254,17 @@ ul {
   .verticalFlexLeft {
     width: 100%;
     margin: 10px;
-    margin-top: 60px;
+  }
+
+  .verticalFlexRight {
+    width: 100%;
+    margin: 10px;
   }
 
   .verticalBox {
     border-radius: 0;
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
   }
 
   .createPostContentBox {

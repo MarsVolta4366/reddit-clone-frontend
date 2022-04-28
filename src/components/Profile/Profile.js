@@ -32,6 +32,7 @@ const Profile = () => {
     return (
         <div className="myContainer">
             <div className="verticalFlexLeft">
+                <h2 className="whiteText">Posts by u/{username}</h2>
                 <div className="whiteText">{usersPostsDisplay}</div>
             </div>
             <div className="verticalFlexRight whiteText hideOnMediaQuery">
