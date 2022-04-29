@@ -147,6 +147,7 @@ function App() {
 
   const [toggleSignUp, setToggleSignUp] = useState(() => false)
   const [toggleLogIn, setToggleLogIn] = useState(() => false)
+  const [toggleShowPageDialogue, setToggleShowPageDialogue] = useState({ toggled: false, post_id: null })
   const [data, setData] = useState([])
 
   useEffect(() => {
@@ -174,7 +175,8 @@ function App() {
     <div id="app">
       <CurrentUserContextProvider>
         <AuthenticationContext.Provider value={{
-          toggleSignUp, setToggleSignUp, toggleLogIn, setToggleLogIn, validateUsername
+          toggleSignUp, setToggleSignUp, toggleLogIn, setToggleLogIn, validateUsername,
+          toggleShowPageDialogue, setToggleShowPageDialogue
         }}>
           <ThemeProvider theme={theme}>
             <Router>
@@ -188,7 +190,6 @@ function App() {
                       <CreatePostTopBar />
                       <PostsGallery data={data} />
                     </div>
-
                     <div className="verticalFlexRight hideOnMediaQuery">
                       <TopGrowingCommunities />
                     </div>

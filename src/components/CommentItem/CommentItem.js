@@ -53,7 +53,8 @@ const CommentItem = ({ comment, post_id }) => {
         }
     }
 
-    const updateComment = async () => {
+    const updateComment = async (e) => {
+        e.preventDefault()
         await fetch("http://localhost:4000/comments", {
             method: "PUT",
             credentials: "include",
@@ -62,6 +63,7 @@ const CommentItem = ({ comment, post_id }) => {
             },
             body: JSON.stringify(editedComment)
         })
+        window.location.reload()
     }
 
     let commentEditForm = (

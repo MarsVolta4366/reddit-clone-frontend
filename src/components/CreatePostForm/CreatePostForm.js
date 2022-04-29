@@ -58,7 +58,7 @@ const CreatePostForm = () => {
                             className="darkBackground whiteText"
                             style={{
                                 padding: "10px",
-                                width: "96%",
+                                width: "95%",
                                 resize: "vertical",
                                 height: "200px",
                             }} />

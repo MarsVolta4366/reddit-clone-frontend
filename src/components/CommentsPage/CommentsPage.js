@@ -31,7 +31,8 @@ const CommentsPage = () => {
         fetchPost()
     }, [post_id, toggleEdit])
 
-    const updatePost = async () => {
+    const updatePost = async (e) => {
+        e.preventDefault()
         await fetch("http://localhost:4000/posts", {
             method: "PUT",
             credentials: "include",
@@ -40,6 +41,7 @@ const CommentsPage = () => {
             },
             body: JSON.stringify(postData)
         })
+        window.location.reload()
     }
 
     let editForm = (
@@ -64,7 +66,8 @@ const CommentsPage = () => {
         </form>
     )
 
-    const handleCommentSubmit = async () => {
+    const handleCommentSubmit = async (e) => {
+        e.preventDefault()
         const response = await fetch("http://localhost:4000/comments", {
             method: "POST",
             credentials: "include",
@@ -74,6 +77,7 @@ const CommentsPage = () => {
             body: JSON.stringify(comment)
         })
         await response.json()
+        window.location.reload()
     }
 
     const renderCommentForm = () => {
