@@ -2,10 +2,13 @@ import { PersonOutline } from "@mui/icons-material"
 import { useContext } from "react"
 import { Link } from "react-router-dom"
 import { CurrentUserContext } from "../../context/CurrentUserContext"
+import PostedAgo from "../PostedAgo/PostedAgo"
 
 const PostItem = ({ postData }) => {
 
     const { currentUser } = useContext(CurrentUserContext)
+
+    let postedMessage = <PostedAgo postedDate={postData.updatedAt} />
 
     const handleUsernameClicked = (e) => {
         e.preventDefault()
@@ -13,7 +16,7 @@ const PostItem = ({ postData }) => {
     }
 
     let postedByDisplay = (
-        <span className="smGrayText">Posted by <span onClick={handleUsernameClicked} className="smGrayText underlineHover">u/{postData.User.username}</span></span>
+        <span className="smGrayText">Posted by <span onClick={handleUsernameClicked} className="smGrayText underlineHover">u/{postData.User.username}</span>{postedMessage}</span>
     )
 
     if (currentUser) {
@@ -21,7 +24,7 @@ const PostItem = ({ postData }) => {
             postedByDisplay = (
                 <div className="iconAndTextBox">
                     <PersonOutline className="darkIcon" style={{ margin: "0" }} onClick={handleUsernameClicked} />
-                    <p className="smLightText"><span onClick={handleUsernameClicked} className="smLightText underlineHover">u/{currentUser.username}</span> <span className="smGrayText">&#183; Posted by <span onClick={handleUsernameClicked} className="smGrayText underlineHover">u/{currentUser.username}</span></span></p>
+                    <p className="smLightText"><span onClick={handleUsernameClicked} className="smLightText underlineHover">u/{currentUser.username}</span> <span className="smGrayText">&#183; Posted by <span onClick={handleUsernameClicked} className="smGrayText underlineHover">u/{currentUser.username}</span>{postedMessage}</span></p>
                 </div>
             )
         }

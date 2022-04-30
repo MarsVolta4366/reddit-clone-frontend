@@ -5,6 +5,7 @@ import { Link, useNavigate, useParams } from "react-router-dom"
 import { CurrentUserContext } from "../../context/CurrentUserContext"
 import CommentItem from "../CommentItem/CommentItem"
 import PostActionsMenu from "../PostActionsMenu/PostActionsMenu"
+import PostedAgo from "../PostedAgo/PostedAgo"
 
 const CommentsPage = () => {
 
@@ -15,6 +16,7 @@ const CommentsPage = () => {
     const [comment, setComment] = useState({ post_id: post_id, text: "" })
     const [commentButtonDisabled, setCommentButtonDisabled] = useState(true)
     const navigate = useNavigate()
+    const [postedMessage, setPostedMessage] = useState("")
 
     useEffect(() => {
         const fetchPost = async () => {
@@ -27,6 +29,7 @@ const CommentsPage = () => {
             })
             const data = await response.json()
             setPostData(data)
+            setPostedMessage(<PostedAgo postedDate={data.updatedAt} />)
         }
         fetchPost()
     }, [post_id, toggleEdit])
@@ -157,6 +160,9 @@ const CommentsPage = () => {
                             </Link>
                             <Link to={`/profile/${postData.User.username}`} className="myLink">
                                 <span className="smGrayText underlineHover">u/{postData.User.username}</span>
+                            </Link>
+                            <Link to="#" className="myLink" style={{ cursor: "context-menu" }}>
+                                <span className="smGrayText">&nbsp;{postedMessage}</span>
                             </Link>
                         </div>
                         <h1 className="postTitle">{postData.title}</h1>
