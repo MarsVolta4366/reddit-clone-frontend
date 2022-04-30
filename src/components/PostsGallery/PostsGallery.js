@@ -9,7 +9,7 @@ const PostsGallery = ({ data }) => {
     })
 
     return (
-        <div className="whiteText">
+        <div>
             {postsDisplay}
         </div>
     )

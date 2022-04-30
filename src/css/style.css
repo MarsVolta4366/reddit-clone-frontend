@@ -97,6 +97,7 @@ ul {
   background-color: #212222;
   padding: 10px;
   border-radius: 5px;
+  margin: 10px;
 }
 
 .smLightText {
@@ -260,24 +261,27 @@ ul {
 
   .verticalFlexLeft {
     width: 100%;
-    margin: 10px;
+    margin: 0px;
   }
 
   .verticalFlexRight {
     width: 100%;
-    margin: 10px;
+    margin: 0px;
   }
 
   .verticalBox {
     border-radius: 0;
     margin-top: 10px !important;
     margin-bottom: 10px !important;
-    margin-left: 10px !important;
-    margin-right: 10px !important;
   }
 
   .createPostContentBox {
     border-radius: 0;
+  }
+
+  .myContainer {
+    margin: 10px !important;
+    margin-top: 60px !important;
   }
 }
 .createPostFormBox {
