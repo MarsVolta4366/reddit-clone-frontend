@@ -1,5 +1,5 @@
 import { Delete, Edit, MoreHoriz, PersonOutline } from "@mui/icons-material"
-import { Button, Menu, MenuItem, TextareaAutosize } from "@mui/material"
+import { Button, Menu, MenuItem } from "@mui/material"
 import { useContext, useState } from "react"
 import { Link } from "react-router-dom"
 import { CurrentUserContext } from "../../context/CurrentUserContext"
@@ -70,18 +70,13 @@ const CommentItem = ({ comment, post_id }) => {
 
     let commentEditForm = (
         <form onSubmit={updateComment}>
-            <TextareaAutosize
+            <textarea
                 maxLength={1000}
+                rows="10"
                 placeholder="Text (optional)"
-                className="darkBackground whiteText"
+                className="darkTextarea"
                 value={editedComment.text}
-                onChange={(e) => setEditedComment({ ...editedComment, text: e.target.value })}
-                style={{
-                    padding: "10px",
-                    width: "96%",
-                    resize: "vertical",
-                    height: "200px"
-                }} />
+                onChange={(e) => setEditedComment({ ...editedComment, text: e.target.value })}></textarea>
             <div style={{ float: "right", marginTop: "5px" }}>
                 <Button className="lightTextButton" onClick={() => setToggleCommentEdit(false)}>Cancel</Button>
                 <Button type="submit" className="grayButton">Save</Button>

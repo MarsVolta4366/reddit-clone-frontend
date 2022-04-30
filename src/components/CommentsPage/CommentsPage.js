@@ -1,5 +1,5 @@
 import { Article, Close, PersonOutline } from "@mui/icons-material"
-import { Button, Divider, TextareaAutosize } from "@mui/material"
+import { Button, Divider } from "@mui/material"
 import { useContext, useEffect, useState } from "react"
 import { Link, useNavigate, useParams } from "react-router-dom"
 import { CurrentUserContext } from "../../context/CurrentUserContext"
@@ -49,19 +49,13 @@ const CommentsPage = () => {
 
     let editForm = (
         <form onSubmit={updatePost}>
-            <TextareaAutosize
-                maxLength={1000}
+            <textarea
+                maxLength={10000}
+                rows="10"
                 placeholder="Text (optional)"
-                className="darkBackground whiteText"
+                className="darkTextarea"
                 value={postData.text}
-                onChange={(e) => setPostData({ ...postData, text: e.target.value })}
-
-                style={{
-                    padding: "10px",
-                    width: "96%",
-                    resize: "vertical",
-                    height: "200px"
-                }} />
+                onChange={(e) => setPostData({ ...postData, text: e.target.value })}></textarea>
             <div style={{ float: "right", marginTop: "5px" }}>
                 <Button className="lightTextButton" onClick={() => setToggleEdit(false)}>Cancel</Button>
                 <Button type="submit" className="grayButton">Save</Button>
@@ -89,25 +83,19 @@ const CommentsPage = () => {
                 <div>
                     <p className="smLightText" style={{ marginTop: "20px", marginBottom: "5px" }}>Comment as {currentUser.username}</p>
                     <form onSubmit={handleCommentSubmit}>
-                        <TextareaAutosize
+                        <textarea
                             required
                             maxLength={1000}
+                            rows="10"
                             placeholder="What are your thoughts?"
                             name="text"
                             id="text"
-                            className="darkBackground whiteText"
+                            className="darkTextarea"
                             value={comment.text}
                             onChange={(e) => {
                                 setComment({ ...comment, text: e.target.value })
                                 e.target.value ? setCommentButtonDisabled(false) : setCommentButtonDisabled(true)
-                            }}
-                            style={{
-                                padding: "10px",
-                                width: "96%",
-                                resize: "vertical",
-                                height: "200px",
-                                marginBottom: "10px"
-                            }} />
+                            }}></textarea>
                         <Button type="submit" className={`grayButton ${commentButtonDisabled ? "no-drop" : ""}`}>Comment</Button>
                     </form>
                 </div>

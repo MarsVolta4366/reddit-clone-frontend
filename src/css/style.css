@@ -272,6 +272,8 @@ ul {
     border-radius: 0;
     margin-top: 10px !important;
     margin-bottom: 10px !important;
+    margin-left: 10px !important;
+    margin-right: 10px !important;
   }
 
   .createPostContentBox {
@@ -285,6 +287,16 @@ ul {
 
 .darkBackground {
   background-color: #212222;
+}
+
+.darkTextarea {
+  padding: 10px;
+  box-sizing: border-box;
+  width: 100%;
+  resize: vertical;
+  margin-bottom: 10px;
+  background-color: #212222;
+  color: #d6cfcf;
 }
 
 #topCommunities {

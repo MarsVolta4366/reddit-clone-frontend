@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Button, Divider, Input, TextareaAutosize } from "@mui/material"
+import { Button, Divider, Input } from "@mui/material"
 
 const CreatePostForm = () => {
 
@@ -48,20 +48,15 @@ const CreatePostForm = () => {
                             }}
                             style={{ marginBottom: "10px", background: "none" }}
                         />
-                        <TextareaAutosize
+                        <textarea
                             maxLength={10000}
+                            rows="10"
                             placeholder="Text (optional)"
                             name="text"
                             id="text"
                             value={post.text}
                             onChange={(e) => setPost({ ...post, text: e.target.value })}
-                            className="darkBackground whiteText"
-                            style={{
-                                padding: "10px",
-                                width: "95%",
-                                resize: "vertical",
-                                height: "200px",
-                            }} />
+                            className="darkTextarea"></textarea>
                         <Divider className="myDivider" />
                         <Button type="submit" className={`grayButton ${postButtonDisabled ? "no-drop" : ""}`}>Post</Button>
                     </form>
