@@ -97,7 +97,6 @@ ul {
   background-color: #212222;
   padding: 10px;
   border-radius: 5px;
-  margin: 10px;
 }
 
 .smLightText {
@@ -151,6 +150,10 @@ ul {
 .myLink {
   text-decoration: none !important;
   color: #d6cfcf !important;
+}
+
+.cursorPointer {
+  cursor: pointer;
 }
 
 .createPostContentBox {
@@ -282,6 +285,10 @@ ul {
   .myContainer {
     margin: 10px !important;
     margin-top: 60px !important;
+  }
+
+  .verticalShowPageBox {
+    margin: 10px;
   }
 }
 .createPostFormBox {

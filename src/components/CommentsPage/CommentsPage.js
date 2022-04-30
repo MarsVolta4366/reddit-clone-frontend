@@ -1,11 +1,11 @@
-import { Article, Close, PersonOutline } from "@mui/icons-material"
+import { Article, Close } from "@mui/icons-material"
 import { Button, Divider } from "@mui/material"
 import { useContext, useEffect, useState } from "react"
-import { Link, useNavigate, useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import { CurrentUserContext } from "../../context/CurrentUserContext"
 import CommentItem from "../CommentItem/CommentItem"
 import PostActionsMenu from "../PostActionsMenu/PostActionsMenu"
-import PostedAgo from "../PostedAgo/PostedAgo"
+import PostedByDisplay from "../PostedByDisplay/PostedByDisplay"
 
 const CommentsPage = () => {
 
@@ -16,7 +16,6 @@ const CommentsPage = () => {
     const [comment, setComment] = useState({ post_id: post_id, text: "" })
     const [commentButtonDisabled, setCommentButtonDisabled] = useState(true)
     const navigate = useNavigate()
-    const [postedMessage, setPostedMessage] = useState("")
 
     useEffect(() => {
         const fetchPost = async () => {
@@ -29,7 +28,6 @@ const CommentsPage = () => {
             })
             const data = await response.json()
             setPostData(data)
-            setPostedMessage(<PostedAgo postedDate={data.updatedAt} />)
         }
         fetchPost()
     }, [post_id, toggleEdit])
@@ -136,23 +134,7 @@ const CommentsPage = () => {
             <div className="myContainerSmMarginTop">
                 <div className="verticalFlexLeft">
                     <div className="verticalShowPageBox">
-                        <div className="iconAndTextBox">
-                            <Link to={`/profile/${postData.User.username}`} className="myLink">
-                                <PersonOutline className="darkIcon" style={{ margin: "0" }} />
-                            </Link>
-                            <Link to={`/profile/${postData.User.username}`} className="myLink">
-                                <span className="smLightText underlineHover">u/{postData.User.username}</span>
-                            </Link>
-                            <Link to="#" className="myLink" style={{ cursor: "context-menu" }}>
-                                <span className="smGrayText">&nbsp;&#183; Posted by&nbsp;</span>
-                            </Link>
-                            <Link to={`/profile/${postData.User.username}`} className="myLink">
-                                <span className="smGrayText underlineHover">u/{postData.User.username}</span>
-                            </Link>
-                            <Link to="#" className="myLink" style={{ cursor: "context-menu" }}>
-                                <span className="smGrayText">&nbsp;{postedMessage}</span>
-                            </Link>
-                        </div>
+                        <PostedByDisplay username={postData.User.username} postedDate={postData.updatedAt} />
                         <h1 className="postTitle">{postData.title}</h1>
                         {toggleEdit ? editForm : <pre className="postText">{postData.text}</pre>}
                         {renderPostActions()}

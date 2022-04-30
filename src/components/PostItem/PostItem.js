@@ -1,39 +1,12 @@
-import { PersonOutline } from "@mui/icons-material"
-import { useContext } from "react"
 import { Link } from "react-router-dom"
-import { CurrentUserContext } from "../../context/CurrentUserContext"
-import PostedAgo from "../PostedAgo/PostedAgo"
+import PostedByDisplay from "../PostedByDisplay/PostedByDisplay"
 
 const PostItem = ({ postData }) => {
-
-    const { currentUser } = useContext(CurrentUserContext)
-
-    let postedMessage = <PostedAgo postedDate={postData.updatedAt} />
-
-    const handleUsernameClicked = (e) => {
-        e.preventDefault()
-        window.location.href = `/profile/${postData.User.username}`
-    }
-
-    let postedByDisplay = (
-        <span className="smGrayText">Posted by <span onClick={handleUsernameClicked} className="smGrayText underlineHover">u/{postData.User.username}</span>{postedMessage}</span>
-    )
-
-    if (currentUser) {
-        if (currentUser.username === postData.User.username) {
-            postedByDisplay = (
-                <div className="iconAndTextBox">
-                    <PersonOutline className="darkIcon" style={{ margin: "0" }} onClick={handleUsernameClicked} />
-                    <p className="smLightText"><span onClick={handleUsernameClicked} className="smLightText underlineHover">u/{currentUser.username}</span> <span className="smGrayText">&#183; Posted by <span onClick={handleUsernameClicked} className="smGrayText underlineHover">u/{currentUser.username}</span>{postedMessage}</span></p>
-                </div>
-            )
-        }
-    }
 
     return (
         <Link to={`/comments/${postData.post_id}`} className="myLink">
             <div className="verticalBox">
-                {postedByDisplay}
+                <PostedByDisplay username={postData.User.username} postedDate={postData.updatedAt} />
                 <h1 className="postTitle">{postData.title}</h1>
                 <div className="fade">
                     <pre className="postText">{postData.text}</pre>
