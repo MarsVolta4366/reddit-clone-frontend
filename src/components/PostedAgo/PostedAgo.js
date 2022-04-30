@@ -15,9 +15,9 @@ const PostedAgo = ({ postedDate }) => {
         postedMessage = ` ${posted} minute ago`
     } else if (posted < 60) {
         postedMessage = ` ${posted} minutes ago`
-    } else if (posted === 60) {
+    } else if (posted >= 60 && posted < 120) {
         postedMessage = " 1 hour ago"
-    } else if (posted > 60 && posted < 1440) {
+    } else if (posted >= 120 && posted < 1440) {
         posted = Math.floor(dur.as("hours"))
         postedMessage = ` ${posted} hours ago`
     } else {
