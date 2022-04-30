@@ -35,7 +35,9 @@ const PostItem = ({ postData }) => {
             <div className="verticalBox">
                 {postedByDisplay}
                 <h1 className="postTitle">{postData.title}</h1>
-                <pre className="postText">{postData.text}</pre>
+                <div className="fade">
+                    <pre className="postText">{postData.text}</pre>
+                </div>
             </div>
         </Link>
     )

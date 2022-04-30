@@ -49,7 +49,7 @@ const CreatePostForm = () => {
                             style={{ marginBottom: "10px", background: "none" }}
                         />
                         <TextareaAutosize
-                            maxLength={1000}
+                            maxLength={10000}
                             placeholder="Text (optional)"
                             name="text"
                             id="text"

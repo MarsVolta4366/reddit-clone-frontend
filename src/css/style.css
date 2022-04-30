@@ -129,6 +129,13 @@ ul {
   margin-bottom: 10px;
 }
 
+.fade {
+  max-height: 250px;
+  overflow: hidden;
+  white-space: nowrap;
+  -webkit-mask-image: linear-gradient(180deg, #000 40%, transparent);
+}
+
 .darkIcon {
   color: #d6cfcf;
   font-size: 25px !important;

@@ -140,6 +140,15 @@ ul {
     margin-bottom: 10px;
 }
 
+// https://stackoverflow.com/questions/22808040/fading-out-text-on-overflow-with-css-if-the-text-is-bigger-than-allowed
+// Used above source to help figure out this fade effect
+.fade {
+    max-height: 250px;
+    overflow: hidden;
+    white-space: nowrap;
+    -webkit-mask-image: linear-gradient(180deg, #000 40%, transparent);
+}
+
 .darkIcon {
     color: $lightText;
     font-size: 25px !important;
