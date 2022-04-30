@@ -3,6 +3,7 @@ import { Button, Menu, MenuItem, TextareaAutosize } from "@mui/material"
 import { useContext, useState } from "react"
 import { Link } from "react-router-dom"
 import { CurrentUserContext } from "../../context/CurrentUserContext"
+import PostedAgo from "../PostedAgo/PostedAgo"
 
 const CommentItem = ({ comment, post_id }) => {
 
@@ -11,6 +12,7 @@ const CommentItem = ({ comment, post_id }) => {
     const commentActionsOpen = Boolean(anchorCommentActions)
     const [toggleCommentEdit, setToggleCommentEdit] = useState(false)
     const [editedComment, setEditedComment] = useState({ comment_id: comment.comment_id, text: comment.text })
+    const postedMessage = <PostedAgo postedDate={comment.updatedAt} />
 
     const deleteComment = async (comment) => {
         await fetch("http://localhost:4000/comments", {
@@ -96,6 +98,7 @@ const CommentItem = ({ comment, post_id }) => {
                 <Link to={`/profile/${comment.User.username}`} className="myLink">
                     <h2 className="commentUsername underlineHover">{comment.User.username}</h2>
                 </Link>
+                <span className="smGrayText">&nbsp;&#183; {postedMessage}</span>
             </div>
             {toggleCommentEdit ? commentEditForm : <pre className="commentText">{comment.text}</pre>}
             {renderCommentActions(comment)}
