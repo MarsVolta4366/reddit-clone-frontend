@@ -16,6 +16,7 @@ import PostsGallery from './components/PostsGallery/PostsGallery'
 import TopGrowingCommunities from './components/TopGrowingCommunities/TopGrowingCommunities'
 import Profile from './components/Profile/Profile'
 import CommentsPage from './components/CommentsPage/CommentsPage'
+import CommunityPage from './components/CommunityPage/CommunityPage'
 
 const theme = createTheme({
   components: {
@@ -203,6 +204,9 @@ function App() {
                 } />
                 <Route path="/comments/:post_id" element={
                   <CommentsPage />
+                } />
+                <Route path="/community/:community_id" element={
+                  <CommunityPage />
                 } />
                 <Route path="*" element={
                   <div className="whiteText">404</div>
