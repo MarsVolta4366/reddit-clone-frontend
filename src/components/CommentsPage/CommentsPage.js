@@ -12,7 +12,7 @@ const CommentsPage = () => {
     const { currentUser } = useContext(CurrentUserContext)
     const [toggleEdit, setToggleEdit] = useState(false)
     const { post_id } = useParams()
-    const [postData, setPostData] = useState({ User: { username: null }, Comments: [] })
+    const [postData, setPostData] = useState({ User: { username: null }, Comments: [], Community: { community_name: "" } })
     const [comment, setComment] = useState({ post_id: post_id, text: "" })
     const [commentButtonDisabled, setCommentButtonDisabled] = useState(true)
     const navigate = useNavigate()
@@ -134,7 +134,7 @@ const CommentsPage = () => {
             <div className="myContainerSmMarginTop">
                 <div className="verticalFlexLeft">
                     <div className="verticalShowPageBox">
-                        <PostedByDisplay username={postData.User.username} postedDate={postData.updatedAt} />
+                        <PostedByDisplay username={postData.User.username} postedDate={postData.updatedAt} communityName={postData.Community.community_name} />
                         <h1 className="postTitle">{postData.title}</h1>
                         {toggleEdit ? editForm : <pre className="postText">{postData.text}</pre>}
                         {renderPostActions()}

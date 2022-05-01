@@ -5,7 +5,8 @@ const CreatePostForm = () => {
 
     const [post, setPost] = useState({
         title: "",
-        text: ""
+        text: "",
+        community_name: ""
     })
     let newPostForm = null
     const [postButtonDisabled, setPostButtonDisabled] = useState(true)
@@ -35,6 +36,20 @@ const CreatePostForm = () => {
                     <form onSubmit={handleSubmit}>
                         <Input
                             required
+                            inputProps={{ maxLength: 21 }}
+                            name="community_name"
+                            id="community_name"
+                            variant="darkInput"
+                            disableUnderline={true}
+                            placeholder="Community"
+                            style={{ marginBottom: "10px", background: "none" }}
+                            value={post.community_name}
+                            onChange={(e) => {
+                                setPost({ ...post, community_name: e.target.value })
+                                e.target.value && post.title ? setPostButtonDisabled(false) : setPostButtonDisabled(true)
+                            }} />
+                        <Input
+                            required
                             inputProps={{ maxLength: 60 }}
                             name="title"
                             id="title"
@@ -44,7 +59,7 @@ const CreatePostForm = () => {
                             value={post.title}
                             onChange={(e) => {
                                 setPost({ ...post, title: e.target.value })
-                                e.target.value ? setPostButtonDisabled(false) : setPostButtonDisabled(true)
+                                e.target.value && post.community_name ? setPostButtonDisabled(false) : setPostButtonDisabled(true)
                             }}
                             style={{ marginBottom: "10px", background: "none" }}
                         />

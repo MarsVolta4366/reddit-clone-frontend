@@ -1,7 +1,7 @@
 import { PersonOutline } from "@mui/icons-material"
 import PostedAgo from "../PostedAgo/PostedAgo"
 
-const PostedByDisplay = ({ username, postedDate }) => {
+const PostedByDisplay = ({ username, postedDate, communityName }) => {
 
     let postedMessage
     if (postedDate) {
@@ -15,8 +15,8 @@ const PostedByDisplay = ({ username, postedDate }) => {
 
     return (
         <div className="iconAndTextBox">
-            <PersonOutline className="darkIcon cursorPointer" style={{ margin: "0" }} onClick={handleUsernameClicked} />
-            <p className="smLightText"><span onClick={handleUsernameClicked} className="smLightText underlineHover cursorPointer">u/{username}</span> <span className="smGrayText">&#183; Posted by <span onClick={handleUsernameClicked} className="smGrayText underlineHover cursorPointer">u/{username}</span>{postedMessage}</span></p>
+            <PersonOutline className="darkIcon cursorPointer" style={{ margin: "0" }} />
+            <p className="smLightText"><span className="smLightText underlineHover cursorPointer">r/{communityName}</span> <span className="smGrayText">&#183; Posted by <span onClick={handleUsernameClicked} className="smGrayText underlineHover cursorPointer">u/{username}</span>{postedMessage}</span></p>
         </div>
     )
 }
