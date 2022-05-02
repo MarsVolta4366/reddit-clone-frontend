@@ -39,6 +39,16 @@ const NavDropDownMenu = () => {
                     </span>
                 </>
             )
+        } else if (location.pathname.startsWith(`/community`)) {
+            const communityName = location.pathname.slice(11)
+            setButtonDisplay(
+                <>
+                    <PersonOutline className="darkIcon" />
+                    <span className="whiteText hideOnMediaQuery">
+                        r/{communityName}
+                    </span>
+                </>
+            )
         }
     }, [location])
 

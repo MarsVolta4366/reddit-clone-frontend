@@ -1,7 +1,7 @@
 import { PersonOutline } from "@mui/icons-material"
 import PostedAgo from "../PostedAgo/PostedAgo"
 
-const PostedByDisplay = ({ username, postedDate, communityName, communityId }) => {
+const PostedByDisplay = ({ username, postedDate, communityName }) => {
 
     let postedMessage
     if (postedDate) {
@@ -15,7 +15,7 @@ const PostedByDisplay = ({ username, postedDate, communityName, communityId }) =
 
     const handleCommunityClicked = (e) => {
         e.preventDefault()
-        window.location.href = `/community/${communityId}`
+        window.location.href = `/community/${communityName}`
     }
 
     return (

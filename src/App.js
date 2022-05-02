@@ -205,7 +205,7 @@ function App() {
                 <Route path="/comments/:post_id" element={
                   <CommentsPage />
                 } />
-                <Route path="/community/:community_id" element={
+                <Route path="/community/:community_name" element={
                   <CommunityPage />
                 } />
                 <Route path="*" element={

@@ -4,13 +4,12 @@ import PostItem from "../PostItem/PostItem"
 
 const CommunityPage = () => {
 
-    const { community_id } = useParams()
+    const { community_name } = useParams()
     const [communityPosts, setCommunityPosts] = useState([])
-    const [communityName, setCommunityName] = useState("")
 
     useEffect(() => {
         const fetchPosts = async () => {
-            const response = await fetch(`http://localhost:4000/posts/community/${community_id}`, {
+            const response = await fetch(`http://localhost:4000/posts/community/${community_name}`, {
                 method: "GET",
                 credentials: "include",
                 headers: {
@@ -19,10 +18,9 @@ const CommunityPage = () => {
             })
             const data = await response.json()
             setCommunityPosts(data)
-            setCommunityName(data[0].Community.community_name)
         }
         fetchPosts()
-    }, [community_id])
+    }, [community_name])
 
     let communityPostsDisplay = communityPosts.map((post, index) => {
         return (
@@ -33,11 +31,13 @@ const CommunityPage = () => {
     return (
         <div className="myContainer">
             <div className="verticalFlexLeft">
-                <h2 className="whiteText">Posts in r/{communityName}</h2>
+                <h2 className="whiteText">Posts in r/{community_name}</h2>
                 <div className="whiteText">{communityPostsDisplay}</div>
             </div>
             <div className="verticalFlexRight whiteText hideOnMediaQuery">
-
+                <div className="verticalBoxCenteredNoHover">
+                    <h2>About Community</h2>
+                </div>
             </div>
         </div>
     )

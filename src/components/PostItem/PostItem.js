@@ -6,7 +6,7 @@ const PostItem = ({ postData }) => {
     return (
         <Link to={`/comments/${postData.post_id}`} className="myLink">
             <div className="verticalBox">
-                <PostedByDisplay username={postData.User.username} postedDate={postData.updatedAt} communityName={postData.Community.community_name} communityId={postData.Community.community_id} />
+                <PostedByDisplay username={postData.User.username} postedDate={postData.updatedAt} communityName={postData.Community.community_name} />
                 <h1 className="postTitle">{postData.title}</h1>
                 <div className="fade">
                     <pre className="postText">{postData.text}</pre>
