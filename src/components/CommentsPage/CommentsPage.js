@@ -5,6 +5,7 @@ import { useNavigate, useParams } from "react-router-dom"
 import { CurrentUserContext } from "../../context/CurrentUserContext"
 import CommentItem from "../CommentItem/CommentItem"
 import PostActionsMenu from "../PostActionsMenu/PostActionsMenu"
+import PostedAgo from "../PostedAgo/PostedAgo"
 import PostedByDisplay from "../PostedByDisplay/PostedByDisplay"
 
 const CommentsPage = () => {
@@ -12,9 +13,10 @@ const CommentsPage = () => {
     const { currentUser } = useContext(CurrentUserContext)
     const [toggleEdit, setToggleEdit] = useState(false)
     const { post_id } = useParams()
-    const [postData, setPostData] = useState({ User: { username: null }, Comments: [], Community: { community_name: "" } })
+    const [postData, setPostData] = useState({ User: { username: null }, Comments: [], Community: { community_name: "", createdAt: "" } })
     const [comment, setComment] = useState({ post_id: post_id, text: "" })
     const [commentButtonDisabled, setCommentButtonDisabled] = useState(true)
+    const [postedAgoText, setPostedAgoText] = useState("")
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -28,6 +30,7 @@ const CommentsPage = () => {
             })
             const data = await response.json()
             setPostData(data)
+            setPostedAgoText(<PostedAgo postedDate={data.Community.createdAt} />)
         }
         fetchPost()
     }, [post_id, toggleEdit])
@@ -145,7 +148,8 @@ const CommentsPage = () => {
                 </div>
                 <div className="verticalFlexRight whiteText hideOnMediaQuery">
                     <div className="verticalBoxNoHover" style={{ marginTop: "0px" }}>
-                        Community
+                        <h1 className="postText">r/{postData.Community.community_name}</h1>
+                        <p className="postText" style={{ marginBottom: "0" }}>Created: {postedAgoText}</p>
                     </div>
                 </div>
             </div>

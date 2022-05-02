@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
+import PostedAgo from "../PostedAgo/PostedAgo"
 import PostItem from "../PostItem/PostItem"
 
 const CommunityPage = () => {
 
     const { community_name } = useParams()
     const [communityPosts, setCommunityPosts] = useState([])
+    const [postedAgoText, setPostedAgoText] = useState("")
 
     useEffect(() => {
         const fetchPosts = async () => {
@@ -18,6 +20,7 @@ const CommunityPage = () => {
             })
             const data = await response.json()
             setCommunityPosts(data)
+            setPostedAgoText(<PostedAgo postedDate={data[0].Community.createdAt} />)
         }
         fetchPosts()
     }, [community_name])
@@ -35,8 +38,9 @@ const CommunityPage = () => {
                 <div className="whiteText">{communityPostsDisplay}</div>
             </div>
             <div className="verticalFlexRight whiteText hideOnMediaQuery">
-                <div className="verticalBoxCenteredNoHover">
-                    <h2>About Community</h2>
+                <div className="verticalBoxNoHover">
+                    <h1 className="postText">About Community</h1>
+                    <p className="postText" style={{ marginBottom: "0" }}>Created: {postedAgoText}</p>
                 </div>
             </div>
         </div>
