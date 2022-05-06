@@ -15,7 +15,7 @@ const CommentItem = ({ comment, post_id }) => {
     const postedMessage = <PostedAgo postedDate={comment.updatedAt} />
 
     const deleteComment = async (comment) => {
-        await fetch("http://localhost:4000/comments", {
+        await fetch("https://reddit-clone-backend-dfs.herokuapp.com/comments", {
             method: "DELETE",
             credentials: "include",
             headers: {
@@ -57,7 +57,7 @@ const CommentItem = ({ comment, post_id }) => {
 
     const updateComment = async (e) => {
         e.preventDefault()
-        await fetch("http://localhost:4000/comments", {
+        await fetch("https://reddit-clone-backend-dfs.herokuapp.com/comments", {
             method: "PUT",
             credentials: "include",
             headers: {

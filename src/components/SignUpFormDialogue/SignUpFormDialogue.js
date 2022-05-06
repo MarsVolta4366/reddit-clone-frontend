@@ -44,7 +44,7 @@ const SignUpFormDialog = () => {
     if (emailValidated) {
       // IF USER INPUT EMAIL, CHECK THAT EMAIL ISN'T ALREADY IN USE, OTHERWISE PROCEED WITH SIGN UP WITHOUT EMAIL
       if (user.email) {
-        const checkUserEmail = await fetch(`http://localhost:4000/users/checkEmail/${user.email}`)
+        const checkUserEmail = await fetch(`https://reddit-clone-backend-dfs.herokuapp.com/users/checkEmail/${user.email}`)
         const response = await checkUserEmail.json()
 
         // IF EMAIL ISN'T TAKEN, PROCEED WITH SIGN UP, ELSE DISPLAY TO USER THAT EMAIL IS TAKEN
@@ -68,7 +68,7 @@ const SignUpFormDialog = () => {
     const usernameValidated = validateUsername(user.username, setUsernameValid)
 
     if (usernameValidated) {
-      const submitUser = await fetch("http://localhost:4000/users", {
+      const submitUser = await fetch("https://reddit-clone-backend-dfs.herokuapp.com/users", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -87,7 +87,7 @@ const SignUpFormDialog = () => {
           username: user.username,
           password: user.password
         }
-        const responselogin = await fetch("http://localhost:4000/authentication", {
+        const responselogin = await fetch("https://reddit-clone-backend-dfs.herokuapp.com/authentication", {
           method: "POST",
           credentials: "include",
           headers: {

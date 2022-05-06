@@ -8,7 +8,7 @@ const CurrentUserContextProvider = ({ children }) => {
 
     useEffect(() => {
         const getLoggedInUser = async () => {
-            let response = await fetch("http://localhost:4000/authentication/profile", {
+            let response = await fetch("https://reddit-clone-backend-dfs.herokuapp.com/authentication/profile", {
                 credentials: "include"
             })
             let user = await response.json()
@@ -18,7 +18,7 @@ const CurrentUserContextProvider = ({ children }) => {
     }, [])
 
     const deletePost = async (postData) => {
-        const deletedPost = await fetch(`http://localhost:4000/posts/${postData.post_id}`, {
+        const deletedPost = await fetch(`https://reddit-clone-backend-dfs.herokuapp.com/posts/${postData.post_id}`, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json"

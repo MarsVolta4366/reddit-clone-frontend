@@ -14,7 +14,7 @@ const CreatePostForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
 
-        const response = await fetch("http://localhost:4000/posts", {
+        const response = await fetch("https://reddit-clone-backend-dfs.herokuapp.com/posts", {
             method: "POST",
             credentials: "include",
             headers: {

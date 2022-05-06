@@ -28,11 +28,12 @@ const LogInFormDialogue = () => {
         const usernameValidated = validateUsername(credentials.username, setUsernameValid)
 
         if (usernameValidated) {
-            const response = await fetch("http://localhost:4000/authentication", {
+            const response = await fetch("https://reddit-clone-backend-dfs.herokuapp.com/authentication", {
                 method: "POST",
                 credentials: "include",
                 headers: {
-                    "Content-Type": "application/json"
+                    "Content-Type": "application/json",
+                    // "Access-Control-Allow-Origin": "http://localhost:3000"
                 },
                 body: JSON.stringify(credentials)
             })

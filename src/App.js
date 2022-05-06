@@ -153,7 +153,14 @@ function App() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch("http://localhost:4000/posts")
+      const response = await fetch("https://reddit-clone-backend-dfs.herokuapp.com/posts")
+      // Add extra stuff in fetch to get rid of errors: 
+      // , {
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //     "Access-Control-Allow-Origin": "http://localhost:3000"
+      //   }
+      // }
       const resData = await response.json()
       setData(resData)
     }
