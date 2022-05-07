@@ -9,7 +9,7 @@ const PostedAgo = ({ postedDate }) => {
     let posted = Math.floor(dur.as("minutes"))
     let postedMessage = ""
 
-    if (posted === 0) {
+    if (posted <= 0) {
         postedMessage = " just now"
     } else if (posted === 1) {
         postedMessage = ` ${posted} minute ago`
