@@ -17,20 +17,8 @@ const CurrentUserContextProvider = ({ children }) => {
         getLoggedInUser()
     }, [])
 
-    const deletePost = async (postData) => {
-        const deletedPost = await fetch(`https://reddit-clone-backend-dfs.herokuapp.com/posts/${postData.post_id}`, {
-            method: "DELETE",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            credentials: "include"
-        })
-        await deletedPost.json()
-        window.location.href = `/`
-    }
-
     return (
-        <CurrentUserContext.Provider value={{ currentUser, setCurrentUser, deletePost }}>
+        <CurrentUserContext.Provider value={{ currentUser, setCurrentUser }}>
             {children}
         </CurrentUserContext.Provider>
     )

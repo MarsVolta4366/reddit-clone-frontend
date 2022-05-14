@@ -1,7 +1,4 @@
-import { useEffect, useState } from 'react'
-import './App.css'
-
-// SCSS STYLING BELOW
+import { useState } from 'react'
 import './css/style.css'
 import LogInFormDialogue from './components/LogInFormDialogue/LogInFormDialogue'
 import SignUpFormDialog from './components/SignUpFormDialogue/SignUpFormDialogue'
@@ -149,23 +146,6 @@ function App() {
   const [toggleSignUp, setToggleSignUp] = useState(() => false)
   const [toggleLogIn, setToggleLogIn] = useState(() => false)
   const [toggleShowPageDialogue, setToggleShowPageDialogue] = useState({ toggled: false, post_id: null })
-  const [data, setData] = useState([])
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = await fetch("https://reddit-clone-backend-dfs.herokuapp.com/posts")
-      // Add extra stuff in fetch to get rid of errors: 
-      // , {
-      //   headers: {
-      //     "Content-Type": "application/json",
-      //     "Access-Control-Allow-Origin": "http://localhost:3000"
-      //   }
-      // }
-      const resData = await response.json()
-      setData(resData)
-    }
-    fetchData()
-  }, [])
 
   // CHECK USERNAME FOR INVALID CHARACTERS, CALLED ONCHANGE AND IN handleSubmit() in SignUpFormDialogue and LoginFormDialogue
   const validateUsername = (username, setUsernameValid) => {
@@ -196,7 +176,7 @@ function App() {
                   <div className="myContainer">
                     <div className="verticalFlexLeft">
                       <CreatePostTopBar />
-                      <PostsGallery data={data} />
+                      <PostsGallery />
                     </div>
                     <div className="verticalFlexRight hideOnMediaQuery">
                       <TopGrowingCommunities />

@@ -1,16 +1,28 @@
 import { Button, Menu, MenuItem } from "@mui/material"
 import { Delete, Edit, MoreHoriz } from "@mui/icons-material"
-import { useContext, useState } from "react"
-import { CurrentUserContext } from "../../context/CurrentUserContext"
+import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 
 const PostActionsMenu = ({ postData, setToggleEdit, toggleEdit }) => {
 
-    const { deletePost } = useContext(CurrentUserContext)
     const [anchorHome, setAnchorHome] = useState(null)
     const homeOpen = Boolean(anchorHome)
+    const navigate = useNavigate()
 
     const handleActionMenuClick = (e) => {
         setAnchorHome(e.currentTarget)
+    }
+
+    const deletePost = async (postData) => {
+        const deletedPost = await fetch(`https://reddit-clone-backend-dfs.herokuapp.com/posts/${postData.post_id}`, {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            credentials: "include"
+        })
+        await deletedPost.json()
+        navigate(-1)
     }
 
     return (
