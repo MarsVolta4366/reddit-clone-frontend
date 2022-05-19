@@ -1,18 +1,11 @@
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import PostItem from "../PostItem/PostItem"
 
-const PostsGallery = () => {
-
-    const [data, setData] = useState([])
+const PostsGallery = ({ setFetchTo, data }) => {
 
     useEffect(() => {
-        const fetchData = async () => {
-            const response = await fetch("https://reddit-clone-backend-dfs.herokuapp.com/posts")
-            const resData = await response.json()
-            setData(resData)
-        }
-        fetchData()
-    }, [])
+        setFetchTo("posts")
+    }, [setFetchTo])
 
     let postsDisplay = data.map((post, index) => {
         return (

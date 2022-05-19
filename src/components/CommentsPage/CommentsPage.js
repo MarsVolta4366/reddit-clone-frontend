@@ -48,6 +48,18 @@ const CommentsPage = () => {
         window.location.reload()
     }
 
+    const deletePost = async (postData) => {
+        const deletedPost = await fetch(`https://reddit-clone-backend-dfs.herokuapp.com/posts/${postData.post_id}`, {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            credentials: "include"
+        })
+        await deletedPost.json()
+        window.location.href = "/"
+    }
+
     let editForm = (
         <form onSubmit={updatePost}>
             <textarea
@@ -114,7 +126,7 @@ const CommentsPage = () => {
         if (currentUser) {
             if (currentUser.username === postData.User.username) {
                 return (
-                    <PostActionsMenu postData={postData} setToggleEdit={setToggleEdit} toggleEdit={toggleEdit} />
+                    <PostActionsMenu postData={postData} setToggleEdit={setToggleEdit} toggleEdit={toggleEdit} deletePost={deletePost} />
                 )
             }
         }

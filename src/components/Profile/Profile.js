@@ -1,33 +1,25 @@
 import { PersonOutline } from "@mui/icons-material"
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import { Link, useParams } from "react-router-dom"
 import PostItem from "../PostItem/PostItem"
 
-const Profile = () => {
+const Profile = ({ setFetchTo, data }) => {
 
-    const [usersPosts, setUsersPosts] = useState([])
     const { username } = useParams()
 
     useEffect(() => {
-        const fetchPosts = async () => {
-            const response = await fetch(`https://reddit-clone-backend-dfs.herokuapp.com/posts/${username}`, {
-                method: "GET",
-                credentials: "include",
-                headers: {
-                    "Content-Type": "application/json"
-                }
-            })
-            const data = await response.json()
-            setUsersPosts(data)
-        }
-        fetchPosts()
-    }, [username])
+        setFetchTo(`posts/${username}`)
 
-    let usersPostsDisplay = usersPosts.map((post, index) => {
-        return (
-            <PostItem postData={post} key={`profilePost${index}`} />
-        )
-    })
+    }, [username, setFetchTo])
+
+    let usersPostsDisplay
+    if (data.length > 0) {
+        usersPostsDisplay = data.map((post, index) => {
+            return (
+                <PostItem postData={post} key={`profilePost${index}`} />
+            )
+        })
+    }
 
     return (
         <div className="myContainer">

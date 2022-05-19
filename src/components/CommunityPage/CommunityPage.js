@@ -1,31 +1,16 @@
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import { useParams } from "react-router-dom"
-import PostedAgo from "../PostedAgo/PostedAgo"
 import PostItem from "../PostItem/PostItem"
 
-const CommunityPage = () => {
+const CommunityPage = ({ setFetchTo, data }) => {
 
     const { community_name } = useParams()
-    const [communityPosts, setCommunityPosts] = useState([])
-    const [postedAgoText, setPostedAgoText] = useState("")
 
     useEffect(() => {
-        const fetchPosts = async () => {
-            const response = await fetch(`https://reddit-clone-backend-dfs.herokuapp.com/posts/community/${community_name}`, {
-                method: "GET",
-                credentials: "include",
-                headers: {
-                    "Content-Type": "application/json"
-                }
-            })
-            const data = await response.json()
-            setCommunityPosts(data)
-            setPostedAgoText(<PostedAgo postedDate={data[0].Community.createdAt} />)
-        }
-        fetchPosts()
-    }, [community_name])
+        setFetchTo(`posts/community/${community_name}`)
+    }, [community_name, setFetchTo, data])
 
-    let communityPostsDisplay = communityPosts.map((post, index) => {
+    let communityPostsDisplay = data.map((post, index) => {
         return (
             <PostItem postData={post} key={`profilePost${index}`} />
         )
@@ -40,7 +25,7 @@ const CommunityPage = () => {
             <div className="verticalFlexRight whiteText hideOnMediaQuery">
                 <div className="verticalBoxNoHover">
                     <h1 className="postText">About Community</h1>
-                    <p className="postText" style={{ marginBottom: "0" }}>Created: {postedAgoText}</p>
+                    {/* <p className="postText" style={{ marginBottom: "0" }}>Created: {postedAgoText}</p> */}
                 </div>
             </div>
         </div>

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './css/style.css'
 import LogInFormDialogue from './components/LogInFormDialogue/LogInFormDialogue'
 import SignUpFormDialog from './components/SignUpFormDialogue/SignUpFormDialogue'
@@ -146,6 +146,8 @@ function App() {
   const [toggleSignUp, setToggleSignUp] = useState(() => false)
   const [toggleLogIn, setToggleLogIn] = useState(() => false)
   const [toggleShowPageDialogue, setToggleShowPageDialogue] = useState({ toggled: false, post_id: null })
+  const [fetchTo, setFetchTo] = useState("posts")
+  const [data, setData] = useState([])
 
   // CHECK USERNAME FOR INVALID CHARACTERS, CALLED ONCHANGE AND IN handleSubmit() in SignUpFormDialogue and LoginFormDialogue
   const validateUsername = (username, setUsernameValid) => {
@@ -158,6 +160,21 @@ function App() {
       return usernameValidated
     }
   }
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await fetch(`https://reddit-clone-backend-dfs.herokuapp.com/${fetchTo}`, {
+        method: "GET",
+        credentials: "include",
+        headers: {
+          "Content-Type": "application/json"
+        }
+      })
+      const resData = await response.json()
+      setData(resData)
+    }
+    fetchData()
+  }, [fetchTo])
 
   return (
     <div id="app">
@@ -176,7 +193,7 @@ function App() {
                   <div className="myContainer">
                     <div className="verticalFlexLeft">
                       <CreatePostTopBar />
-                      <PostsGallery />
+                      <PostsGallery setFetchTo={setFetchTo} data={data} />
                     </div>
                     <div className="verticalFlexRight hideOnMediaQuery">
                       <TopGrowingCommunities />
@@ -187,13 +204,13 @@ function App() {
                   <CreatePostForm />
                 } />
                 <Route path="/profile/:username" element={
-                  <Profile />
+                  <Profile setFetchTo={setFetchTo} data={data} />
                 } />
                 <Route path="/comments/:post_id" element={
                   <CommentsPage />
                 } />
                 <Route path="/community/:community_name" element={
-                  <CommunityPage />
+                  <CommunityPage setFetchTo={setFetchTo} data={data} />
                 } />
                 <Route path="*" element={
                   <div className="whiteText">404</div>
