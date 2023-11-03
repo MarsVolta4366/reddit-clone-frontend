@@ -18,7 +18,7 @@ const TopNavigation = () => {
     }
 
     const logoutUser = async () => {
-        await fetch("https://reddit-clone-backend-dfs.herokuapp.com/authentication/logout", {
+        await fetch("https://reddit-clone-backend-dfs.onrender.com/authentication/logout", {
             credentials: "include"
         })
         window.location = "/"

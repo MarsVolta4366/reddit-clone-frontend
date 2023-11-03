@@ -8,7 +8,7 @@ const CurrentUserContextProvider = ({ children }) => {
 
     useEffect(() => {
         const getLoggedInUser = async () => {
-            let response = await fetch("https://reddit-clone-backend-dfs.herokuapp.com/authentication/profile", {
+            let response = await fetch("https://reddit-clone-backend-dfs.onrender.com/authentication/profile", {
                 credentials: "include"
             })
             let user = await response.json()

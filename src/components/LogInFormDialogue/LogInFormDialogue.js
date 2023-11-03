@@ -28,7 +28,7 @@ const LogInFormDialogue = () => {
         const usernameValidated = validateUsername(credentials.username, setUsernameValid)
 
         if (usernameValidated) {
-            const response = await fetch("https://reddit-clone-backend-dfs.herokuapp.com/authentication", {
+            const response = await fetch("https://reddit-clone-backend-dfs.onrender.com/authentication", {
                 method: "POST",
                 credentials: "include",
                 headers: {

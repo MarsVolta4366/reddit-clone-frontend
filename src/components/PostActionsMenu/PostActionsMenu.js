@@ -14,7 +14,7 @@ const PostActionsMenu = ({ postData, setToggleEdit, toggleEdit }) => {
     }
 
     const deletePost = async (postData) => {
-        const deletedPost = await fetch(`https://reddit-clone-backend-dfs.herokuapp.com/posts/${postData.post_id}`, {
+        const deletedPost = await fetch(`https://reddit-clone-backend-dfs.onrender.com/posts/${postData.post_id}`, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json"

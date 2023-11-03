@@ -10,7 +10,7 @@ const Profile = () => {
 
     useEffect(() => {
         const fetchPosts = async () => {
-            const response = await fetch(`https://reddit-clone-backend-dfs.herokuapp.com/posts/${username}`, {
+            const response = await fetch(`https://reddit-clone-backend-dfs.onrender.com/posts/${username}`, {
                 method: "GET",
                 credentials: "include",
                 headers: {

@@ -21,7 +21,7 @@ const CommentsPage = () => {
 
     useEffect(() => {
         const fetchPost = async () => {
-            const response = await fetch(`https://reddit-clone-backend-dfs.herokuapp.com/posts/comments/${post_id}`, {
+            const response = await fetch(`https://reddit-clone-backend-dfs.onrender.com/posts/comments/${post_id}`, {
                 method: "GET",
                 credentials: "include",
                 headers: {
@@ -37,7 +37,7 @@ const CommentsPage = () => {
 
     const updatePost = async (e) => {
         e.preventDefault()
-        await fetch("https://reddit-clone-backend-dfs.herokuapp.com/posts", {
+        await fetch("https://reddit-clone-backend-dfs.onrender.com/posts", {
             method: "PUT",
             credentials: "include",
             headers: {
@@ -66,7 +66,7 @@ const CommentsPage = () => {
 
     const handleCommentSubmit = async (e) => {
         e.preventDefault()
-        const response = await fetch("https://reddit-clone-backend-dfs.herokuapp.com/comments", {
+        const response = await fetch("https://reddit-clone-backend-dfs.onrender.com/comments", {
             method: "POST",
             credentials: "include",
             headers: {

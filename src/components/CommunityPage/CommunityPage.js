@@ -11,7 +11,7 @@ const CommunityPage = () => {
 
     useEffect(() => {
         const fetchPosts = async () => {
-            const response = await fetch(`https://reddit-clone-backend-dfs.herokuapp.com/posts/community/${community_name}`, {
+            const response = await fetch(`https://reddit-clone-backend-dfs.onrender.com/posts/community/${community_name}`, {
                 method: "GET",
                 credentials: "include",
                 headers: {

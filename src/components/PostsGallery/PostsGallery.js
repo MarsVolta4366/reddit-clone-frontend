@@ -7,7 +7,7 @@ const PostsGallery = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-            const response = await fetch("https://reddit-clone-backend-dfs.herokuapp.com/posts")
+            const response = await fetch("https://reddit-clone-backend-dfs.onrender.com/posts")
             const resData = await response.json()
             setData(resData)
         }
